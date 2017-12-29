@@ -7,7 +7,8 @@ public class DNDInitiative {
         this.character = character;
     }
 
-    public int addTheRoll(DNDEntity entity, int initiativeBonus) {
-        return 0;
+    public void addTheRoll(DNDEntity entity, int initiativeBonus) {
+        int initiativeUpdate = entity.getInitBonus() + initiativeBonus;
+        entity.setInitBonus(initiativeUpdate);
     }
 }
