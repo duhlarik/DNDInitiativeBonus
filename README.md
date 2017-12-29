@@ -12,12 +12,16 @@ Bonus points if you build this in "thin slice" way that cuts across all scenario
 
 ### Scenarios:
 I want to add and possibly remove characters to a battle by name.
+
 I want to assign and/or roll initiative for the characters in the battle. Feel free to either roll for the DM or let them specify the initiative value or both.
+
 I want to see the characters in a battle in Initiative order descending.
 
 ### Bonus:
 I want to know whose turn it is.
+
 I want to be able to change whose turn it is in Initiative order.
+
 I want to be able to end the battle and start the next one.
 
 ### Super-bonus:
