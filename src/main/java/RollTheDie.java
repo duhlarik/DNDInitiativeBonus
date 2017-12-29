@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class RollTheDie {
+public class RollTheDie extends Random {
 
     private Random roll = new Random();
 

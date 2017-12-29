@@ -10,5 +10,4 @@ public class DNDInitiative {
     public int addTheRoll(DNDEntity entity, int initiativeBonus) {
         return 0;
     }
-
 }
