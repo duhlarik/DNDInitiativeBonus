@@ -4,8 +4,7 @@ public class RollTheDie extends Random {
 
     private Random roll = new Random();
 
-    public RollTheDie(Random roll) {
-        this.roll = roll;
+    public RollTheDie() {
     }
 
     public int getNextRoll() {

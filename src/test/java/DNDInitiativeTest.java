@@ -6,31 +6,40 @@ import org.mockito.Mockito;
 public class DNDInitiativeTest {
 
     private DNDEntity character;
-    private RollTheDie mockRoll;
+    private RollTheDie roll;
     private DNDInitiative initiative;
 
     @Before
     public void setup() {
 
+        roll = Mockito.mock(RollTheDie.class);
         character = new DNDEntity("New Guy", 11);
-        mockRoll = Mockito.mock(RollTheDie.class);
         initiative = new DNDInitiative(character);
+        Mockito.when(roll.getNextRoll()).thenReturn(6);
     }
 
     @Test
     public void whenPlayerRollsTheDie_RollTheDie_IsCalled() {
 
-        initiative.addTheRoll(character, mockRoll.getNextRoll());
+        initiative.addTheRoll(character, roll.getNextRoll());
 
-        Mockito.verify(mockRoll).getNextRoll();
+        Mockito.verify(roll).getNextRoll();
     }
 
     @Test
     public void whenPlayerRollsTheDieTheValueIsAddedToPlayersInitiativeBonus() {
 
-        Mockito.when(mockRoll.getNextRoll()).thenReturn(6);
-        initiative.addTheRoll(character, mockRoll.getNextRoll());
+        initiative.addTheRoll(character, roll.getNextRoll());
 
         Assert.assertEquals(17, character.getInitBonus());
+    }
+
+    @Test
+    public void dungeonMasterIsAbleToRetrieveCharactersNameAndInitBonus() {
+
+        int initiativeToAdd = roll.getNextRoll();
+        initiative.addTheRoll(character, initiativeToAdd);
+
+        Assert.assertEquals("New Guy -- 17", initiative.retrieveCharacters());
     }
 }

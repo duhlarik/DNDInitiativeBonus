@@ -11,4 +11,8 @@ public class DNDInitiative {
         int initiativeUpdate = entity.getInitBonus() + initiativeBonus;
         entity.setInitBonus(initiativeUpdate);
     }
+
+    public String retrieveCharacters() {
+        return null;
+    }
 }
