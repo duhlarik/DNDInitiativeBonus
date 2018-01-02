@@ -28,8 +28,8 @@ public class RollTheDieTest {
         DNDCharacter character1 = new DNDCharacter("New Guy 1", -4);
         DNDCharacter character2 = new DNDCharacter("New Guy 2", 4);
 
-        characterMap.makeCharacterMap(character1);
-        characterMap.makeCharacterMap(character2);
+        characterMap.updateCharacterMap(character1);
+        characterMap.updateCharacterMap(character2);
 
         RollTheDie roll = Mockito.mock(RollTheDie.class);
         Mockito.when(roll.getNextRoll()).thenReturn(8);

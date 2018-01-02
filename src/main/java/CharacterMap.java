@@ -5,7 +5,7 @@ public class CharacterMap {
 
     private Map<String, Integer> characterMap = new HashMap<>();
 
-    public Map<String, Integer> makeCharacterMap(DNDCharacter character) {
+    public Map<String, Integer> updateCharacterMap(DNDCharacter character) {
 
         characterMap.put(character.getName(), character.getInitBonus());
 
