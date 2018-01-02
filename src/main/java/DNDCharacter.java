@@ -1,10 +1,9 @@
-
-public class DNDEntity {
+public class DNDCharacter {
 
     String name = "";
     int initBonus = 0;
 
-    public DNDEntity(String name, int initBonus) {
+    public DNDCharacter(String name, int initBonus) {
         this.name = name;
         this.initBonus = initBonus;
     }

@@ -1,18 +1,20 @@
 
 public class DNDInitiative {
 
-    DNDEntity character = new DNDEntity("", 0);
+    private DNDCharacter character = new DNDCharacter("", 0);
 
-    public DNDInitiative(DNDEntity character) {
+    public DNDInitiative(DNDCharacter character) {
         this.character = character;
     }
 
-    public void addTheRoll(DNDEntity entity, int initiativeBonus) {
-        int initiativeUpdate = entity.getInitBonus() + initiativeBonus;
-        entity.setInitBonus(initiativeUpdate);
+    public void addTheRoll(DNDCharacter character, int initiativeBonus) {
+        int initiativeUpdate = character.getInitBonus() + initiativeBonus;
+        character.setInitBonus(initiativeUpdate);
     }
 
     public String retrieveCharacters() {
-        return null;
+        String name = character.getName();
+        Integer bonus = character.getInitBonus();
+        return name + " -- " + bonus.toString();
     }
 }
