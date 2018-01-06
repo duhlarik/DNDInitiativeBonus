@@ -1,18 +1,16 @@
 import java.util.*;
 
-public class RollTheDie extends Random {
+public class RollTheDie {
 
-    private RollTheDie roll = new RollTheDie();
-    private DNDInitiative initiative;
-    private DNDCharacter character;
+    private Random random = new Random();
 
-    public RollTheDie() {
+    public RollTheDie(Random random) {
+        this.random = random;
     }
 
     public int getNextRoll() {
-        return roll.nextInt(20) + 1;
+        return random.nextInt();
     }
-
 
     public Map<String, Integer> rollForAllCharacters(CharacterMap characterMap) {
 
@@ -23,8 +21,9 @@ public class RollTheDie extends Random {
             String name = mappedCharacter.getKey();
             Integer initBonus = mappedCharacter.getValue();
 
-            character = new DNDCharacter(name, initBonus);
-            initiative = new DNDInitiative(character);
+            DNDCharacter character = new DNDCharacter(name, initBonus);
+            DNDInitiative initiative = new DNDInitiative(character);
+            RollTheDie roll = new RollTheDie(random);
 
             initiative.addTheRoll(character, roll.getNextRoll());
 

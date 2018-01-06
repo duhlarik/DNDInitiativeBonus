@@ -7,6 +7,6 @@ public class PredeterminedRoll extends Random {
     }
 
     public int nextInt() {
-        return 14;
+        return 8;
     }
 }
