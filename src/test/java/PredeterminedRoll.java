@@ -2,10 +2,7 @@ import java.util.Random;
 
 public class PredeterminedRoll extends Random {
 
-    public PredeterminedRoll() {
-        super();
-    }
-
+    @Override
     public int nextInt() {
         return 8;
     }

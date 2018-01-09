@@ -28,4 +28,10 @@ public class CharacterMapTest {
 
     }
 
+    @Test
+    public void dungeonMasterIsAbleToSortTheCharacterMapByInitBonus() {
+
+    }
+
+
 }

@@ -29,8 +29,7 @@ public class DNDInitiativeTest {
     @Test
     public void dungeonMasterIsAbleToRetrieveACharactersNameAndInitBonus() {
 
-        int initiativeToAdd = roll.getNextRoll();
-        initiative.addTheRoll(character, initiativeToAdd);
+        initiative.addTheRoll(character, roll.getNextRoll());
 
         Assert.assertEquals("New Guy -- 17", initiative.retrieveCharacters());
     }

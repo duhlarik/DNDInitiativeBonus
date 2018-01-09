@@ -8,13 +8,15 @@ public class DNDInitiative {
     }
 
     public void addTheRoll(DNDCharacter character, int initiativeBonus) {
-        int initiativeUpdate = character.getInitBonus() + initiativeBonus;
-        character.setInitBonus(initiativeUpdate);
+
+        character.setInitBonus(character.getInitBonus() + initiativeBonus);
     }
 
     public String retrieveCharacters() {
+
         String name = character.getName();
         Integer bonus = character.getInitBonus();
+
         return name + " -- " + bonus.toString();
     }
 }

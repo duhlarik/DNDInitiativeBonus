@@ -37,7 +37,7 @@ public class RollTheDieTest {
 
         RollTheDie roll = new RollTheDie(predeterminedRoll);
 
-        roll.rollForAllCharacters(characterMap);
+        roll.mockedRollForAllCharacters(characterMap);
 
         List <Integer> actualRollArray = new ArrayList<>();
 
