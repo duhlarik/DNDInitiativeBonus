@@ -27,8 +27,11 @@ public class CharacterMap {
                 .entrySet()
                 .stream()
                 .sorted(comparingByValue(Collections.reverseOrder()))
-                .collect(toMap(Entry::getKey, Entry::getValue,
-                        (e1, e2) -> e1, LinkedHashMap::new));
+                .collect(toMap(
+                        Entry::getKey,
+                        Entry::getValue,
+                        (e1, e2) -> e1,
+                        LinkedHashMap::new));
 
         return sortedCharacterMap;
     }

@@ -1,14 +1,14 @@
 public class DNDCharacter {
 
-    String name = "";
-    int initBonus = 0;
+    private String name = "";
+    private int initBonus = 0;
 
     public DNDCharacter(String name, int initBonus) {
         this.name = name;
         this.initBonus = initBonus;
     }
 
-    public int getInitBonus() {
+    int getInitBonus() {
         return initBonus;
     }
 
@@ -16,7 +16,7 @@ public class DNDCharacter {
         this.initBonus = initBonus;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 

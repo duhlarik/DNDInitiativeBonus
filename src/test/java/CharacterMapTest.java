@@ -1,10 +1,11 @@
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static org.junit.Assert.assertEquals;
 
 public class CharacterMapTest {
 
@@ -26,7 +27,7 @@ public class CharacterMapTest {
         expectedMap.put("Trerrathiel", -2);
         expectedMap.put("Thidus", 7);
 
-        Assert.assertEquals(characterMap.getCharacterMap(),expectedMap);
+        assertEquals(characterMap.getCharacterMap(),expectedMap);
 
     }
 
@@ -35,13 +36,13 @@ public class CharacterMapTest {
 
         CharacterMap characterMap = new CharacterMap();
 
-        DNDCharacter Eroang = new DNDCharacter("Eroang", 13);
-        DNDCharacter Trerrathiel = new DNDCharacter("Trerrathiel", -2);
-        DNDCharacter Thidus = new DNDCharacter("Thidus", 7);
+        DNDCharacter Grienidd = new DNDCharacter("Grienidd", 13);
+        DNDCharacter Adaumeth = new DNDCharacter("Adaumeth", -2);
+        DNDCharacter Rhaleron = new DNDCharacter("Rhaleron", 7);
 
-        characterMap.updateCharacterMap(Eroang);
-        characterMap.updateCharacterMap(Trerrathiel);
-        characterMap.updateCharacterMap(Thidus);
+        characterMap.updateCharacterMap(Grienidd);
+        characterMap.updateCharacterMap(Adaumeth);
+        characterMap.updateCharacterMap(Rhaleron);
 
         Map<String, Integer> sortedCharacterMap = characterMap.sortCharacterMapByValue(characterMap);
 
@@ -56,8 +57,8 @@ public class CharacterMapTest {
         int valueAtOne = actualArray.get(1);
         int valueAtTwo = actualArray.get(2);
 
-        Assert.assertEquals(13, valueAtZero);
-        Assert.assertEquals(7, valueAtOne);
-        Assert.assertEquals(-2, valueAtTwo);
+        assertEquals(13, valueAtZero);
+        assertEquals(7, valueAtOne);
+        assertEquals(-2, valueAtTwo);
     }
 }

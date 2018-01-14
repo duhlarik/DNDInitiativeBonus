@@ -10,10 +10,8 @@ public class RollTheDie {
     }
 
     public int getNextRoll() {
-        return random.nextInt(20) +1;
+        return random.nextInt();
     }
-
-    private RollTheDie roll;
 
     public Map<String, Integer> rollForAllCharacters(CharacterMap characterMap) {
 
@@ -25,10 +23,25 @@ public class RollTheDie {
             DNDCharacter character = new DNDCharacter(name, initBonus);
             DNDInitiative initiative = new DNDInitiative(character);
 
+            RollTheDie roll = new RollTheDie(random);
+
             initiative.addTheRoll(character, roll.getNextRoll());
 
             characterMap.updateCharacterMap(character);
         }
+        return characterMap.getCharacterMap();
+    }
+
+    public Map<String, Integer> rollForOneCharacter(CharacterMap characterMap, DNDCharacter character) {
+
+            DNDInitiative initiative = new DNDInitiative(character);
+
+            RollTheDie roll = new RollTheDie(random);
+
+            initiative.addTheRoll(character, roll.getNextRoll());
+
+            characterMap.updateCharacterMap(character);
+
         return characterMap.getCharacterMap();
     }
 
