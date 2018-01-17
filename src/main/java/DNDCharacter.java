@@ -3,7 +3,7 @@ public class DNDCharacter {
     private String name = "";
     private int initBonus = 0;
 
-    public DNDCharacter(String name, int initBonus) {
+    DNDCharacter(String name, int initBonus) {
         this.name = name;
         this.initBonus = initBonus;
     }
@@ -12,7 +12,7 @@ public class DNDCharacter {
         return initBonus;
     }
 
-    public void setInitBonus(int initBonus) {
+    void setInitBonus(int initBonus) {
         this.initBonus = initBonus;
     }
 

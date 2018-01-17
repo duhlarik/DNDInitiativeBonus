@@ -5,15 +5,15 @@ public class RollTheDie {
 
     private Random random = new Random();
 
-    public RollTheDie(Random random) {
+    RollTheDie(Random random) {
         this.random = random;
     }
 
-    public int getNextRoll() {
+    int getNextRoll() {
         return random.nextInt();
     }
 
-    public Map<String, Integer> rollForAllCharacters(CharacterMap characterMap) {
+    Map<String, Integer> rollForAllCharacters(CharacterMap characterMap) {
 
         for (Map.Entry<String, Integer> mappedCharacter : characterMap.getCharacterMap().entrySet()) {
 
@@ -32,7 +32,7 @@ public class RollTheDie {
         return characterMap.getCharacterMap();
     }
 
-    public Map<String, Integer> rollForOneCharacter(CharacterMap characterMap, DNDCharacter character) {
+    Map<String, Integer> rollForOneCharacter(CharacterMap characterMap, DNDCharacter character) {
 
             DNDInitiative initiative = new DNDInitiative(character);
 
@@ -46,7 +46,7 @@ public class RollTheDie {
     }
 
     // This class is for testing only
-    public Map<String, Integer> mockedRollForAllCharacters(CharacterMap characterMap) {
+    Map<String, Integer> mockedRollForAllCharacters(CharacterMap characterMap) {
 
         for (Map.Entry<String, Integer> mappedCharacter : characterMap.getCharacterMap().entrySet()) {
 

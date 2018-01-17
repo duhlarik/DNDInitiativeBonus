@@ -1,3 +1,5 @@
+import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -9,10 +11,17 @@ import static org.junit.Assert.assertEquals;
 
 public class CharacterMapTest {
 
+    private CharacterMap characterMap;
+
+    @Before
+    public void setUp() {
+
+        characterMap = new CharacterMap();
+
+    }
+
     @Test
     public void dungeonMasterIsAbleToAddCharactersToTheCharacterMap() {
-
-        CharacterMap characterMap = new CharacterMap();
 
         DNDCharacter Eroang = new DNDCharacter("Eroang", 13);
         DNDCharacter Trerrathiel = new DNDCharacter("Trerrathiel", -2);
@@ -27,14 +36,11 @@ public class CharacterMapTest {
         expectedMap.put("Trerrathiel", -2);
         expectedMap.put("Thidus", 7);
 
-        assertEquals(characterMap.getCharacterMap(),expectedMap);
-
+        assertEquals(expectedMap, characterMap.getCharacterMap());
     }
 
     @Test
     public void dungeonMasterIsAbleToSortTheCharacterMapByInitBonus() {
-
-        CharacterMap characterMap = new CharacterMap();
 
         DNDCharacter Grienidd = new DNDCharacter("Grienidd", 13);
         DNDCharacter Adaumeth = new DNDCharacter("Adaumeth", -2);
@@ -60,5 +66,73 @@ public class CharacterMapTest {
         assertEquals(13, valueAtZero);
         assertEquals(7, valueAtOne);
         assertEquals(-2, valueAtTwo);
+    }
+
+    @Test
+    public void dungeonMasterIsAbleToRemoveACharacterByNameFromTheCharacterMap() {
+
+        DNDCharacter Kedelaviel = new DNDCharacter("Kedelaviel", -1);
+        DNDCharacter Daleseth = new DNDCharacter("Daleseth", 11);
+        DNDCharacter Onilanwan = new DNDCharacter("Onilanwan", 7);
+
+        characterMap.updateCharacterMap(Kedelaviel);
+        characterMap.updateCharacterMap(Daleseth);
+        characterMap.updateCharacterMap(Onilanwan);
+
+        Map<String, Integer> expectedMap = new HashMap<>();
+        expectedMap.put("Kedelaviel", -1);
+        expectedMap.put("Daleseth", 11);
+        expectedMap.put("Onilanwan", 7);
+
+        assertEquals(expectedMap, characterMap.getCharacterMap());
+
+        characterMap.removeACharacterByName(Kedelaviel);
+
+        expectedMap.remove("Kedelaviel");
+
+        assertEquals(expectedMap, characterMap.getCharacterMap());
+    }
+
+    @Test
+    public void ifANameDoesNotExistInTheCharacterMapTheDMWillBeNotified() {
+
+        DNDCharacter Riev = new DNDCharacter("Riev", -5);
+        DNDCharacter Felidda = new DNDCharacter("Felidda", 17);
+        DNDCharacter Lothien = new DNDCharacter("Lothien", 2);
+        DNDCharacter Ulorevia = new DNDCharacter("Ulorevia", 9);
+
+        characterMap.updateCharacterMap(Riev);
+        characterMap.updateCharacterMap(Felidda);
+        characterMap.updateCharacterMap(Lothien);
+
+        Map<String, Integer> expectedMap = new HashMap<>();
+        expectedMap.put("Riev", -5);
+        expectedMap.put("Felidda", 17);
+        expectedMap.put("Lothien", 2);
+
+        assertEquals(expectedMap, characterMap.getCharacterMap());
+
+        characterMap.removeACharacterByName(Ulorevia);
+
+        assertEquals(expectedMap, characterMap.getCharacterMap());
+    }
+
+    @Ignore
+    @Test
+    public void dungeonMasterIsAbleToRetrieveAllCharactersInInitiativeOrder() {
+
+        DNDCharacter Yomahar = new DNDCharacter("Yomahar", 12);
+        DNDCharacter Pryde = new DNDCharacter("Pryde", -3);
+        DNDCharacter Hairenwan = new DNDCharacter("Hairenwan", 19);
+
+        characterMap.updateCharacterMap(Yomahar);
+        characterMap.updateCharacterMap(Pryde);
+        characterMap.updateCharacterMap(Hairenwan);
+
+        characterMap.sortCharacterMapByValue(characterMap);
+
+        String expected = "Hairenwan -- 19\n" + "Yomahar -- 12\n" + "Pryde -- -3";
+
+        assertEquals(expected, characterMap.retrieveSortedCharacterMap(characterMap));
     }
 }

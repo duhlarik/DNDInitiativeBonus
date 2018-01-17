@@ -11,6 +11,10 @@ public class CharacterMap {
 
     private Map<String, Integer> characterMap = new HashMap<>();
 
+    public Map<String, Integer> getCharacterMap() {
+        return characterMap;
+    }
+
     public Map<String, Integer> updateCharacterMap(DNDCharacter character) {
 
         characterMap.put(character.getName(), character.getInitBonus());
@@ -36,7 +40,35 @@ public class CharacterMap {
         return sortedCharacterMap;
     }
 
-    public Map<String, Integer> getCharacterMap() {
+    public Map<String, Integer> removeACharacterByName(DNDCharacter character) {
+
+        String name = character.getName();
+
+        if (characterMap.containsKey(name)) {
+
+            characterMap.remove(name);
+
+        } else {
+
+            System.out.println("The character " + name + " does not exist in the character map.");
+        }
+
         return characterMap;
+    }
+
+    public StringBuilder retrieveSortedCharacterMap(CharacterMap characterMap) {
+
+        characterMap.sortCharacterMapByValue(characterMap);
+
+        StringBuilder sortedPrintOut = new StringBuilder();
+        String printOut = "";
+
+        for (String key : characterMap.getCharacterMap().keySet()) {
+            for (Integer value : characterMap.getCharacterMap().values()) {
+                printOut = key + " -- " + value.toString() + "\n";
+            } sortedPrintOut.append(printOut);
+        }
+
+        return sortedPrintOut;
     }
 }

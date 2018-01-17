@@ -10,13 +10,15 @@ public class DNDInitiativeTest {
     private DNDCharacter character;
     private RollTheDie roll;
     private DNDInitiative initiative;
+    private CharacterMap characterMap;
 
     @Before
     public void setup() {
 
-        roll = Mockito.mock(RollTheDie.class);
         character = new DNDCharacter("Fraullan", 11);
         initiative = new DNDInitiative(character);
+        characterMap = new CharacterMap();
+        roll = Mockito.mock(RollTheDie.class);
         when(roll.getNextRoll()).thenReturn(6);
     }
 

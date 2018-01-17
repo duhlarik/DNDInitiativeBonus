@@ -8,19 +8,20 @@ import java.util.Map;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class RollTheDieTest {
 
     private PredeterminedRoll predeterminedRoll;
     private CharacterMap characterMap;
+    private RollTheDie roll;
 
     @Before
     public void setUp() {
 
         characterMap = new CharacterMap();
         predeterminedRoll = new PredeterminedRoll();
+        roll = new RollTheDie(predeterminedRoll);
     }
 
     @Test
@@ -44,8 +45,6 @@ public class RollTheDieTest {
         characterMap.updateCharacterMap(Asoaria);
         characterMap.updateCharacterMap(Jerelith);
 
-        RollTheDie roll = new RollTheDie(predeterminedRoll);
-
         roll.rollForAllCharacters(characterMap);
 
         List<Integer> actualRollArray = new ArrayList<>();
@@ -60,8 +59,6 @@ public class RollTheDieTest {
 
     @Test
     public void dungeonMasterCanRollForOneCharacterAtATime() {
-
-        RollTheDie roll = new RollTheDie(predeterminedRoll);
 
         DNDCharacter Kusien = new DNDCharacter("Kusien", 19);
         DNDCharacter Greld = new DNDCharacter("Greld", 4);
