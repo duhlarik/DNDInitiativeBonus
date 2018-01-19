@@ -6,4 +6,9 @@ public class PredeterminedRoll extends Random {
     public int nextInt() {
         return 8;
     }
+
+    @Override
+    public int nextInt(int bound) {
+        return 7;
+    }
 }

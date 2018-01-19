@@ -1,5 +1,4 @@
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -117,7 +116,6 @@ public class CharacterMapTest {
         assertEquals(expectedMap, characterMap.getCharacterMap());
     }
 
-    @Ignore
     @Test
     public void dungeonMasterIsAbleToRetrieveAllCharactersInInitiativeOrder() {
 
@@ -129,10 +127,17 @@ public class CharacterMapTest {
         characterMap.updateCharacterMap(Pryde);
         characterMap.updateCharacterMap(Hairenwan);
 
-        characterMap.sortCharacterMapByValue(characterMap);
+        Map<String, Integer> sortedCharacterMap = characterMap.retrieveSortedCharacterMap(characterMap);
 
-        String expected = "Hairenwan -- 19\n" + "Yomahar -- 12\n" + "Pryde -- -3";
+        StringBuilder actual = new StringBuilder();
 
-        assertEquals(expected, characterMap.retrieveSortedCharacterMap(characterMap));
+        for (Map.Entry<String, Integer> sortedCharacter : sortedCharacterMap.entrySet()) {
+            String info = sortedCharacter.getKey() + " -- " + sortedCharacter.getValue().toString() + "\n";
+            actual.append(info);
+        }
+
+        String expected = "Hairenwan -- 19\n" + "Yomahar -- 12\n" + "Pryde -- -3\n";
+
+        assertEquals(expected, actual.toString());
     }
 }

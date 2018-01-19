@@ -12,7 +12,6 @@ import static org.mockito.Mockito.*;
 
 public class RollTheDieTest {
 
-    private PredeterminedRoll predeterminedRoll;
     private CharacterMap characterMap;
     private RollTheDie roll;
 
@@ -20,7 +19,7 @@ public class RollTheDieTest {
     public void setUp() {
 
         characterMap = new CharacterMap();
-        predeterminedRoll = new PredeterminedRoll();
+        PredeterminedRoll predeterminedRoll = new PredeterminedRoll();
         roll = new RollTheDie(predeterminedRoll);
     }
 

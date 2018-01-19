@@ -56,19 +56,14 @@ public class CharacterMap {
         return characterMap;
     }
 
-    public StringBuilder retrieveSortedCharacterMap(CharacterMap characterMap) {
+    public Map<String, Integer> retrieveSortedCharacterMap(CharacterMap characterMap) {
 
-        characterMap.sortCharacterMapByValue(characterMap);
+        Map<String, Integer> sortedCharacterMap = characterMap.sortCharacterMapByValue(characterMap);
 
-        StringBuilder sortedPrintOut = new StringBuilder();
-        String printOut = "";
-
-        for (String key : characterMap.getCharacterMap().keySet()) {
-            for (Integer value : characterMap.getCharacterMap().values()) {
-                printOut = key + " -- " + value.toString() + "\n";
-            } sortedPrintOut.append(printOut);
+        for (Entry<String, Integer> sortedCharacters : sortedCharacterMap.entrySet()) {
+            System.out.println(sortedCharacters.getKey() + " -- " + sortedCharacters.getValue());
         }
 
-        return sortedPrintOut;
+        return sortedCharacterMap;
     }
 }
