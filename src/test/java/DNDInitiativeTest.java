@@ -6,31 +6,27 @@ import static org.junit.Assert.assertEquals;
 public class DNDInitiativeTest {
 
     private DNDCharacter character;
-    private RollTheDie roll;
     private DNDInitiative initiative;
+    private PredeterminedRoll predeterminedRoll = new PredeterminedRoll();
 
     @Before
     public void setup() {
 
         character = new DNDCharacter("Fraullan", 11);
         initiative = new DNDInitiative(character);
-        PredeterminedRoll predeterminedRoll = new PredeterminedRoll();
-        roll = new RollTheDie(predeterminedRoll);
-    }
-
-    @Test
-    public void whenPlayerRollsTheDieTheValueIsAddedToPlayersInitiativeBonus() {
-
-        initiative.addTheRoll(character, roll.getNextRoll());
-
-        assertEquals(19, character.getInitBonus());
     }
 
     @Test
     public void dungeonMasterIsAbleToRetrieveACharactersNameAndInitBonus() {
 
-        initiative.addTheRoll(character, roll.getNextRoll());
+        assertEquals("Fraullan -- 11", initiative.retrieveCharacters());
+    }
 
-        assertEquals("Fraullan -- 19", initiative.retrieveCharacters());
+    @Test
+    public void aPlayerCanManuallyRollTheDieAndTheValueIsAddedToPlayersInitiativeBonus() {
+
+        initiative.addTheRoll(character, 10);
+
+        assertEquals(21, character.getInitBonus());
     }
 }

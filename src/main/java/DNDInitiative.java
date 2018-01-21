@@ -14,6 +14,7 @@ public class DNDInitiative {
         character.setInitBonus(character.getInitBonus() + initiativeBonus);
     }
 
+
     public String retrieveCharacters() {
 
         String name = character.getName();

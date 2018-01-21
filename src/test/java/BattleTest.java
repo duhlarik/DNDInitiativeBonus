@@ -43,6 +43,8 @@ public class BattleTest {
             }
         }
 
+        battle.printBattleCharacterList(battleCharacters);
+
         String expected = "Battle of Five Armies:\n" + "Legalidda -- 17\n" + "Ulorin -- 9\n" + "Dwaydda -- 2\n" + "Legelaric -- -5\n";
 
         Assert.assertEquals(expected, actualBattle.toString());

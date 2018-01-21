@@ -136,6 +136,8 @@ public class CharacterMapTest {
             actual.append(info);
         }
 
+        characterMap.printSortedCharacterMap(sortedCharacterMap);
+
         String expected = "Hairenwan -- 19\n" + "Yomahar -- 12\n" + "Pryde -- -3\n";
 
         assertEquals(expected, actual.toString());

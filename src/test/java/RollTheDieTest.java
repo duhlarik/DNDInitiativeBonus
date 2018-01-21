@@ -8,35 +8,23 @@ import java.util.Map;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
-import static org.mockito.Mockito.*;
 
 public class RollTheDieTest {
 
     private CharacterMap characterMap;
+    private PredeterminedRoll predeterminedRoll;
     private RollTheDie roll;
 
     @Before
     public void setUp() {
 
         characterMap = new CharacterMap();
-        PredeterminedRoll predeterminedRoll = new PredeterminedRoll();
+        predeterminedRoll = new PredeterminedRoll();
         roll = new RollTheDie(predeterminedRoll);
     }
 
     @Test
-    public void whenPlayerRollsTheDie_RollTheDie_IsCalled() {
-
-        DNDCharacter character = new DNDCharacter("Uniadric", 0);
-        DNDInitiative initiative = new DNDInitiative(character);
-        RollTheDie roll = mock(RollTheDie.class);
-
-        initiative.addTheRoll(character, roll.getNextRoll());
-
-        verify(roll).getNextRoll();
-    }
-
-    @Test
-    public void dungeonMasterCanRollForAllPlayersAtOnce() {
+    public void dungeonMasterCanRollForAllPlayersAtOnceFromACharacterMap() {
 
         DNDCharacter Asoaria = new DNDCharacter("Asoaria", -4);
         DNDCharacter Jerelith = new DNDCharacter("Jerelith", 4);
@@ -57,7 +45,7 @@ public class RollTheDieTest {
     }
 
     @Test
-    public void dungeonMasterCanRollForOneCharacterAtATime() {
+    public void dungeonMasterCanRollForOnePlayerAtATimeFromACharacterMap() {
 
         DNDCharacter Kusien = new DNDCharacter("Kusien", 19);
         DNDCharacter Greld = new DNDCharacter("Greld", 4);
@@ -80,4 +68,6 @@ public class RollTheDieTest {
 
         assertThat(initBonus, is(22));
     }
+
+
 }

@@ -58,9 +58,7 @@ public class CharacterMap {
 
     public Map<String, Integer> retrieveSortedCharacterMap(CharacterMap characterMap) {
 
-        Map<String, Integer> sortedCharacterMap = characterMap.sortCharacterMapByValue(characterMap);
-
-        return sortedCharacterMap;
+        return characterMap.sortCharacterMapByValue(characterMap);
     }
 
     public void printSortedCharacterMap(Map<String, Integer> sortedCharacterMap) {
