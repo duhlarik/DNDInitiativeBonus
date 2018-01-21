@@ -60,10 +60,13 @@ public class CharacterMap {
 
         Map<String, Integer> sortedCharacterMap = characterMap.sortCharacterMapByValue(characterMap);
 
+        return sortedCharacterMap;
+    }
+
+    public void printSortedCharacterMap(Map<String, Integer> sortedCharacterMap) {
+
         for (Entry<String, Integer> sortedCharacters : sortedCharacterMap.entrySet()) {
             System.out.println(sortedCharacters.getKey() + " -- " + sortedCharacters.getValue());
         }
-
-        return sortedCharacterMap;
     }
 }

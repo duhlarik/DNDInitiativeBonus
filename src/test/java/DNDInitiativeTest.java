@@ -1,9 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.when;
 
 public class DNDInitiativeTest {
 
@@ -16,8 +14,8 @@ public class DNDInitiativeTest {
 
         character = new DNDCharacter("Fraullan", 11);
         initiative = new DNDInitiative(character);
-        roll = Mockito.mock(RollTheDie.class);
-        when(roll.getNextRoll()).thenReturn(6);
+        PredeterminedRoll predeterminedRoll = new PredeterminedRoll();
+        roll = new RollTheDie(predeterminedRoll);
     }
 
     @Test
@@ -25,7 +23,7 @@ public class DNDInitiativeTest {
 
         initiative.addTheRoll(character, roll.getNextRoll());
 
-        assertEquals(17, character.getInitBonus());
+        assertEquals(19, character.getInitBonus());
     }
 
     @Test
@@ -33,6 +31,6 @@ public class DNDInitiativeTest {
 
         initiative.addTheRoll(character, roll.getNextRoll());
 
-        assertEquals("Fraullan -- 17", initiative.retrieveCharacters());
+        assertEquals("Fraullan -- 19", initiative.retrieveCharacters());
     }
 }
