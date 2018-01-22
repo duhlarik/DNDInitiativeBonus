@@ -40,9 +40,7 @@ public class CharacterMap {
         return sortedCharacterMap;
     }
 
-    public Map<String, Integer> removeACharacterByName(DNDCharacter character) {
-
-        String name = character.getName();
+    public Map<String, Integer> removeACharacterByName(String name) {
 
         if (characterMap.containsKey(name)) {
 

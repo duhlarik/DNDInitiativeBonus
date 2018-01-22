@@ -85,7 +85,7 @@ public class CharacterMapTest {
 
         assertEquals(expectedMap, characterMap.getCharacterMap());
 
-        characterMap.removeACharacterByName(Kedelaviel);
+        characterMap.removeACharacterByName("Kedelaviel");
 
         expectedMap.remove("Kedelaviel");
 
@@ -111,7 +111,7 @@ public class CharacterMapTest {
 
         assertEquals(expectedMap, characterMap.getCharacterMap());
 
-        characterMap.removeACharacterByName(Ulorevia);
+        characterMap.removeACharacterByName("Ulorevia");
 
         assertEquals(expectedMap, characterMap.getCharacterMap());
     }
